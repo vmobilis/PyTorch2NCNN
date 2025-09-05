@@ -249,7 +249,7 @@ if "-" != mnn_path:
         m = f.read(4)
         s4 = m[0] + (m[1] << 8) + (m[2] << 16) + (m[3] << 24)
         if channel and tilesize and (s1 != 1 or s2 != channel or s3 != tilesize or s4 != tilesize):
-            print_t(f"Warning: model input shape {s1}x{s2}x{s3}x{s4} does not match desired {s1}x{channel}x{tilesize}x{tilesize}.")
+            print_t(f"Warning: model input shape {s1}x{s2}x{s3}x{s4} does not match desired 1x{channel}x{tilesize}x{tilesize}.")
         f.seek(o)
         m = "\xff\xff\xff\xff".encode('latin-1')
         f.write(m)
